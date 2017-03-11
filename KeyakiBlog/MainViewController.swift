@@ -2,13 +2,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var table: UITableView!
     
-    private let viewModel = ViewModel()
+    private let viewModel = MainViewModel()
     private let dataSource = ArticleDataSource()
 
     override func viewDidLoad() {
@@ -27,5 +27,12 @@ class ViewController: UIViewController {
         .disposed(by: disposeBag)
     }
 
+    
+    @IBAction func toFollow(_ sender: UIBarButtonItem) {
+        let sb: UIStoryboard = UIStoryboard(name: "Follow", bundle: Bundle.main)
+        let view: FollowViewController = sb.instantiateInitialViewController() as! FollowViewController
+        
+        self.present(view, animated: true, completion: nil)
+    }
 }
 

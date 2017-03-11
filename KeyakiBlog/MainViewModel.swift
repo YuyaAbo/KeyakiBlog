@@ -2,7 +2,7 @@ import RxCocoa
 import RxSwift
 import Kanna
 
-struct ViewModel {
+struct MainViewModel {
     
     var articles: Observable<[Article]> {
         return Observable.of(fetch())

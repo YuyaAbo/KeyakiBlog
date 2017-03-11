@@ -25,7 +25,7 @@ class ArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ArticleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
         let item = articles[indexPath.row]
         cell.title?.text = item.title
         cell.author?.text = item.author
