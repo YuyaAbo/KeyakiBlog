@@ -17,7 +17,12 @@ class ViewController: UIViewController {
         viewModel.articles.bindTo(table.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
 
         table.rx.modelSelected(Article.self).subscribe { (value) in
-            print(value.element!.url)
+            let sb: UIStoryboard = UIStoryboard(name: "Article", bundle: Bundle.main)
+            let view: ArticleViewController = sb.instantiateInitialViewController() as! ArticleViewController
+            
+            view.url = "http://www.keyakizaka46.com/" + value.element!.url
+            self.present(view, animated: true, completion: nil)
+            //print(value.element!.url)
         }
         .disposed(by: disposeBag)
     }

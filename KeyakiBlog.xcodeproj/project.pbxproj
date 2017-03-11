@@ -12,6 +12,8 @@
 		7B1B9F651E742FEC003EF537 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1B9F641E742FEC003EF537 /* Kanna.framework */; };
 		7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F6C1E745313003EF537 /* ArticleCell.swift */; };
 		7B1B9F6F1E7465EF003EF537 /* ArticleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F6E1E7465EF003EF537 /* ArticleDataSource.swift */; };
+		7B1B9F711E747340003EF537 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B9F701E747340003EF537 /* Article.storyboard */; };
+		7B1B9F731E7473A8003EF537 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F721E7473A8003EF537 /* ArticleViewController.swift */; };
 		7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E511E740F81009E956D /* AppDelegate.swift */; };
 		7BC63E541E740F81009E956D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E531E740F81009E956D /* ViewController.swift */; };
 		7BC63E571E740F81009E956D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E551E740F81009E956D /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		7B1B9F661E74355C003EF537 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = "Pods/../build/Debug-iphoneos/RxAlamofire/RxAlamofire.framework"; sourceTree = "<group>"; };
 		7B1B9F6C1E745313003EF537 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		7B1B9F6E1E7465EF003EF537 /* ArticleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDataSource.swift; sourceTree = "<group>"; };
+		7B1B9F701E747340003EF537 /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
+		7B1B9F721E7473A8003EF537 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		7B6DB5D38DE989585EF2BF82 /* Pods-KeyakiBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyakiBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeyakiBlog/Pods-KeyakiBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		7BC63E4E1E740F81009E956D /* KeyakiBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyakiBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC63E511E740F81009E956D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				7B1B9F5E1E7416E4003EF537 /* Article.swift */,
 				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
 				7BC63E551E740F81009E956D /* Main.storyboard */,
+				7B1B9F701E747340003EF537 /* Article.storyboard */,
+				7B1B9F721E7473A8003EF537 /* ArticleViewController.swift */,
 				7BC63E581E740F81009E956D /* Assets.xcassets */,
 				7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */,
 				7BC63E5D1E740F81009E956D /* Info.plist */,
@@ -180,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC63E5C1E740F81009E956D /* LaunchScreen.storyboard in Resources */,
+				7B1B9F711E747340003EF537 /* Article.storyboard in Resources */,
 				7BC63E591E740F81009E956D /* Assets.xcassets in Resources */,
 				7BC63E571E740F81009E956D /* Main.storyboard in Resources */,
 			);
@@ -242,6 +249,7 @@
 			files = (
 				7BC63E541E740F81009E956D /* ViewController.swift in Sources */,
 				7B1B9F5F1E7416E4003EF537 /* Article.swift in Sources */,
+				7B1B9F731E7473A8003EF537 /* ArticleViewController.swift in Sources */,
 				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7BC63E681E741400009E956D /* ViewModel.swift in Sources */,
 				7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */,
