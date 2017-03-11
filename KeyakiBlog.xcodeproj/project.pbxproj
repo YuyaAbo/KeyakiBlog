@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		3689A969B00A7C03B7A8586E /* Pods_KeyakiBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE52B4E31545AE72077B19A2 /* Pods_KeyakiBlog.framework */; };
 		7B1B9F5F1E7416E4003EF537 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F5E1E7416E4003EF537 /* Blog.swift */; };
-		7B1B9F631E742FE8003EF537 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1B9F621E742FE8003EF537 /* Alamofire.framework */; };
 		7B1B9F651E742FEC003EF537 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1B9F641E742FEC003EF537 /* Kanna.framework */; };
+		7B1B9F6B1E743EB7003EF537 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1B9F621E742FE8003EF537 /* Alamofire.framework */; };
+		7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F6C1E745313003EF537 /* ArticleCell.swift */; };
 		7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E511E740F81009E956D /* AppDelegate.swift */; };
 		7BC63E541E740F81009E956D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E531E740F81009E956D /* ViewController.swift */; };
 		7BC63E571E740F81009E956D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E551E740F81009E956D /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 		7B1B9F5E1E7416E4003EF537 /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		7B1B9F621E742FE8003EF537 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/KeyakiBlog-dxchshvwhycrdzayzwpzuidtjbry/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		7B1B9F641E742FEC003EF537 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "../../Library/Developer/Xcode/DerivedData/KeyakiBlog-dxchshvwhycrdzayzwpzuidtjbry/Build/Products/Debug-iphonesimulator/Kanna/Kanna.framework"; sourceTree = "<group>"; };
+		7B1B9F661E74355C003EF537 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = "Pods/../build/Debug-iphoneos/RxAlamofire/RxAlamofire.framework"; sourceTree = "<group>"; };
+		7B1B9F6C1E745313003EF537 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		7B6DB5D38DE989585EF2BF82 /* Pods-KeyakiBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyakiBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeyakiBlog/Pods-KeyakiBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		7BC63E4E1E740F81009E956D /* KeyakiBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyakiBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC63E511E740F81009E956D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1B9F6B1E743EB7003EF537 /* Alamofire.framework in Frameworks */,
 				7B1B9F651E742FEC003EF537 /* Kanna.framework in Frameworks */,
-				7B1B9F631E742FE8003EF537 /* Alamofire.framework in Frameworks */,
 				7BC63E651E7410C0009E956D /* RxCocoa.framework in Frameworks */,
 				7BC63E661E7410C0009E956D /* RxSwift.framework in Frameworks */,
 				3689A969B00A7C03B7A8586E /* Pods_KeyakiBlog.framework in Frameworks */,
@@ -59,6 +62,7 @@
 		1675BCB0ADF800A0A885F0F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B1B9F661E74355C003EF537 /* RxAlamofire.framework */,
 				7B1B9F641E742FEC003EF537 /* Kanna.framework */,
 				7B1B9F621E742FE8003EF537 /* Alamofire.framework */,
 				7BC63E631E7410C0009E956D /* RxCocoa.framework */,
@@ -93,6 +97,7 @@
 				7BC63E531E740F81009E956D /* ViewController.swift */,
 				7BC63E671E741400009E956D /* ViewModel.swift */,
 				7B1B9F5E1E7416E4003EF537 /* Blog.swift */,
+				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
 				7BC63E551E740F81009E956D /* Main.storyboard */,
 				7BC63E581E740F81009E956D /* Assets.xcassets */,
 				7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */,
@@ -236,6 +241,7 @@
 			files = (
 				7BC63E541E740F81009E956D /* ViewController.swift in Sources */,
 				7B1B9F5F1E7416E4003EF537 /* Blog.swift in Sources */,
+				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7BC63E681E741400009E956D /* ViewModel.swift in Sources */,
 				7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */,
 			);
@@ -363,6 +369,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/RxCocoa",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RxAlamofire",
 				);
 				INFOPLIST_FILE = KeyakiBlog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,6 +388,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/RxCocoa",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RxAlamofire",
 				);
 				INFOPLIST_FILE = KeyakiBlog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

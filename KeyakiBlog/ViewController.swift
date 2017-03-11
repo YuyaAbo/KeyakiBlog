@@ -13,8 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.blogs.bindTo(table.rx.items(cellIdentifier: "Cell")) { row, item, cell in
-            cell.textLabel?.text = item.title
+        viewModel.blogs.bindTo(table.rx.items(cellIdentifier: "Cell", cellType: ArticleCell.self)) { row, item, cell in
+            cell.title?.text = item.title
+            cell.author?.text = item.author
+            cell.publishedAt?.text = item.publishedAt
         }
         .addDisposableTo(disposeBag)
     }
