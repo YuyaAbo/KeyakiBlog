@@ -9,16 +9,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     
     private let viewModel = ViewModel()
+    private let dataSource = ArticleDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.blogs.bindTo(table.rx.items(cellIdentifier: "Cell", cellType: ArticleCell.self)) { row, item, cell in
-            cell.title?.text = item.title
-            cell.author?.text = item.author
-            cell.publishedAt?.text = item.publishedAt
+        viewModel.articles.bindTo(table.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
+
+        table.rx.modelSelected(Article.self).subscribe { (value) in
+            print(value.element!.url)
         }
-        .addDisposableTo(disposeBag)
+        .disposed(by: disposeBag)
     }
 
 }
