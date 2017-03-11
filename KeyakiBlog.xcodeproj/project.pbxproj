@@ -93,11 +93,12 @@
 		7B1B9F791E74936A003EF537 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				7BC63E551E740F81009E956D /* Main.storyboard */,
-				7B1B9F771E749115003EF537 /* Follow.storyboard */,
 				7B1B9F701E747340003EF537 /* Article.storyboard */,
+				7B1B9F771E749115003EF537 /* Follow.storyboard */,
+				7BC63E551E740F81009E956D /* Main.storyboard */,
 			);
 			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		7B1B9F7C1E7493F1003EF537 /* View */ = {
@@ -106,10 +107,11 @@
 				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
 				7B1B9F721E7473A8003EF537 /* ArticleViewController.swift */,
 				7B1B9F7A1E7493B1003EF537 /* FollowViewController.swift */,
-				7B1B9F861E74A14B003EF537 /* MemberCell.swift */,
 				7BC63E531E740F81009E956D /* MainViewController.swift */,
+				7B1B9F861E74A14B003EF537 /* MemberCell.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		7B1B9F7D1E74945B003EF537 /* ViewModel */ = {
@@ -117,10 +119,11 @@
 			children = (
 				7B1B9F6E1E7465EF003EF537 /* ArticleDataSource.swift */,
 				7B1B9F7E1E749495003EF537 /* FollowViewModel.swift */,
-				7B1B9F841E749FF3003EF537 /* MemberDataSource.swift */,
 				7BC63E671E741400009E956D /* MainViewModel.swift */,
+				7B1B9F841E749FF3003EF537 /* MemberDataSource.swift */,
 			);
 			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7B1B9F801E7494E1003EF537 /* Model */ = {
@@ -131,22 +134,16 @@
 				7B1B9F821E749876003EF537 /* MemberList.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		7B1B9F811E74972F003EF537 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7BC63E451E740F81009E956D = {
 			isa = PBXGroup;
 			children = (
-				7BC63E501E740F81009E956D /* KeyakiBlog */,
-				7BC63E4F1E740F81009E956D /* Products */,
-				FB0DD93283914541DFDD78EC /* Pods */,
 				1675BCB0ADF800A0A885F0F5 /* Frameworks */,
+				7BC63E501E740F81009E956D /* KeyakiBlog */,
+				FB0DD93283914541DFDD78EC /* Pods */,
+				7BC63E4F1E740F81009E956D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,15 +158,14 @@
 		7BC63E501E740F81009E956D /* KeyakiBlog */ = {
 			isa = PBXGroup;
 			children = (
-				7B1B9F811E74972F003EF537 /* New Group */,
 				7B1B9F801E7494E1003EF537 /* Model */,
-				7B1B9F7D1E74945B003EF537 /* ViewModel */,
-				7B1B9F7C1E7493F1003EF537 /* View */,
 				7B1B9F791E74936A003EF537 /* Storyboard */,
+				7B1B9F7C1E7493F1003EF537 /* View */,
+				7B1B9F7D1E74945B003EF537 /* ViewModel */,
 				7BC63E511E740F81009E956D /* AppDelegate.swift */,
 				7BC63E581E740F81009E956D /* Assets.xcassets */,
-				7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */,
 				7BC63E5D1E740F81009E956D /* Info.plist */,
+				7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */,
 			);
 			path = KeyakiBlog;
 			sourceTree = "<group>";
@@ -334,6 +330,7 @@
 				7BC63E561E740F81009E956D /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */ = {
@@ -342,6 +339,7 @@
 				7BC63E5B1E740F81009E956D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
