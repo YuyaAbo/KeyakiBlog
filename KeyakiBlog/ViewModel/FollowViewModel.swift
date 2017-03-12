@@ -13,7 +13,8 @@ struct FollowViewModel {
         
         for member in MemberList.enumerate {
             let image: UIImage = member.image
-            members.append(Member(image))
+            let isFollow: Bool = false
+            members.append(Member(image, isFollow))
         }
         
         return members

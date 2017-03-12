@@ -2,11 +2,12 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class MemberDataSource: NSObject, RxCollectionViewDataSourceType, UICollectionViewDataSource {
+class MemberDataSource: NSObject, RxCollectionViewDataSourceType, UICollectionViewDataSource, SectionedViewDataSourceType {
     
     typealias Element = [Member]
     
     var members: Element = []
+    private let selectedIndexPath = PublishSubject<IndexPath>()
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -27,7 +28,13 @@ class MemberDataSource: NSObject, RxCollectionViewDataSourceType, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberCell", for: indexPath) as! MemberCell
         let item = members[indexPath.row]
         cell.imageView.image = item.image
+        cell.star.isHidden = !item.isFollow
         return cell
+    }
+    
+    func model(at indexPath: IndexPath) throws -> Any {
+        members[indexPath.row].isFollow = !members[indexPath.row].isFollow
+        return members[indexPath.row]
     }
 
 }

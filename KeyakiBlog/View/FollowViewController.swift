@@ -6,6 +6,7 @@ class FollowViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var toMainButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let viewModel = FollowViewModel()
@@ -14,13 +15,28 @@ class FollowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.members.bindTo(collectionView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
-    }
-
-    @IBAction func toMain(_ sender: UIBarButtonItem) {
-        let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let view: MainViewController = sb.instantiateInitialViewController() as! MainViewController
+        viewModel.members
+            .bindTo(collectionView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
+       
+        viewModel.members
+            .asObservable()
+            .bindNext { [weak self] _ in
+            self?.collectionView.reloadData()
+            }
+            .addDisposableTo(disposeBag)
+        /*collectionView.rx.modelSelected(Member.self).subscribe { (event) in
+            self.viewModel.members.bindTo(self.collectionView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.disposeBag)
+        }.disposed(by: disposeBag)*/
         
-        self.present(view, animated: true, completion: nil)
+        // go back main
+        let tapped = toMainButton.rx.tap
+        tapped.subscribe { [weak self] _ in
+            let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let view: MainViewController = sb.instantiateInitialViewController() as! MainViewController
+            
+            self?.present(view, animated: true, completion: nil)
+            }
+            .addDisposableTo(disposeBag)
     }
 }

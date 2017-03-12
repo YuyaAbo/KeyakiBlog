@@ -33,20 +33,26 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemberCell" id="rsQ-Yo-IIi" customClass="MemberCell" customModule="KeyakiBlog" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ishimori" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-5h-2Ar">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="9tj-qv-rad">
+                                                    <rect key="frame" x="38" y="35" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <size key="customSize" width="65" height="65"/>
                                         <connections>
                                             <outlet property="imageView" destination="U2l-5h-2Ar" id="h34-da-qOC"/>
+                                            <outlet property="star" destination="9tj-qv-rad" id="hdX-pe-iS9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -55,11 +61,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="戻る" id="mHh-Mt-E0R">
-                                        <connections>
-                                            <action selector="toMain:" destination="EPJ-JE-yJK" id="rde-8M-AWc"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="戻る" id="mHh-Mt-E0R"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -67,6 +69,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Scw-U2-kYk" id="ONl-nE-NEU"/>
+                        <outlet property="toMainButton" destination="mHh-Mt-E0R" id="Ksp-gf-6gY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZrC-Mc-Mav" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,5 +79,6 @@
     </scenes>
     <resources>
         <image name="Ishimori" width="131" height="160"/>
+        <image name="Star" width="237" height="226"/>
     </resources>
 </document>

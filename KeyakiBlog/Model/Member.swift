@@ -9,5 +9,9 @@ struct Member {
         self.image = image
         self.isFollow = isFollow
     }
+    
+    mutating func setIsFollow(bool: Bool) {
+        self.isFollow = bool
+    }
 
 }
