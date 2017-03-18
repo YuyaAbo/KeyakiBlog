@@ -4,39 +4,38 @@ import RxSwift
 
 class FollowViewController: UIViewController {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let viewModel = FollowViewModel()
 
     @IBOutlet weak var toMainButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let viewModel = FollowViewModel()
-    private let dataSource = MemberDataSource()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.members
-            .bindTo(collectionView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
-       
-        viewModel.members
-            .asObservable()
-            .bindNext { [weak self] _ in
-            self?.collectionView.reloadData()
+        viewModel.updatedMembers
+            .bindTo(collectionView.rx.items(cellIdentifier: "MemberCell", cellType: MemberCell.self)) { row, element, cell in
+                cell.imageView?.image = element.image
+                cell.star?.isHidden = !element.isFollow
             }
-            .addDisposableTo(disposeBag)
-        /*collectionView.rx.modelSelected(Member.self).subscribe { (event) in
-            self.viewModel.members.bindTo(self.collectionView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.disposeBag)
-        }.disposed(by: disposeBag)*/
+            .disposed(by: disposeBag)
+        
+        collectionView.rx
+            .modelSelected(Member.self)
+            .subscribe { [weak self] (value) in
+                self?.viewModel.follow(id: (value.element?.id)!)
+            }.disposed(by: disposeBag)
         
         // go back main
         let tapped = toMainButton.rx.tap
         tapped.subscribe { [weak self] _ in
-            let sb: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let view: MainViewController = sb.instantiateInitialViewController() as! MainViewController
+            let sb: UIStoryboard = UIStoryboard(name: "Articles", bundle: Bundle.main)
+            let view: ArticlesViewController = sb.instantiateInitialViewController() as! ArticlesViewController
             
-            self?.present(view, animated: true, completion: nil)
+            self?.show(view, sender: self)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+        
+        viewModel.fetch()
     }
 }

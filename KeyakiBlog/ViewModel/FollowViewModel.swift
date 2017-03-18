@@ -1,23 +1,29 @@
 import RxCocoa
 import RxSwift
-import Kanna
 
 struct FollowViewModel {
     
-    var members: Observable<[Member]> {
-        return Observable.of(fetch())
+    private var members = Variable<[Member]>([])
+    
+    var updatedMembers: Observable<[Member]> {
+        return members.asObservable()
     }
     
-    func fetch() -> [Member] {
-        var members = [Member]()
+    func fetch() {
+        var newMembers = [Member]()
         
         for member in MemberList.enumerate {
             let image: UIImage = member.image
             let isFollow: Bool = false
-            members.append(Member(image, isFollow))
+            newMembers.append(Member(member.rawValue, image, isFollow))
         }
         
-        return members
+        members.value = newMembers
+    }
+    
+    func follow(id: Int) {
+        let followed = members.value[id].isFollow
+        members.value[id].isFollow = !followed
     }
     
 }

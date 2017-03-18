@@ -1,40 +1,47 @@
 import RxCocoa
 import RxSwift
 
-class MainViewController: UIViewController {
+class ArticlesViewController: UIViewController {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let viewModel = ArticlesViewModel()
 
     @IBOutlet weak var toFollowButton: UIBarButtonItem!
     @IBOutlet weak var table: UITableView!
-    
-    private let viewModel = MainViewModel()
-    private let dataSource = ArticleDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.articles.bindTo(table.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
-
-        table.rx.modelSelected(Article.self)
-            .subscribe { (value) in
-                let sb: UIStoryboard = UIStoryboard(name: "Article", bundle: Bundle.main)
-                let view: ArticleViewController = sb.instantiateInitialViewController() as! ArticleViewController
-            
-                view.url = "http://www.keyakizaka46.com/" + value.element!.url
-                self.present(view, animated: true, completion: nil)
+        viewModel.updatedArticles
+            .bindTo(table.rx.items(cellIdentifier: "ArticleCell", cellType: ArticleCell.self)) { row, element, cell in
+                cell.title?.text = element.title
+                cell.author?.text = element.author
+                cell.url = element.url
+                cell.publishedAt?.text = element.publishedAt
             }
             .disposed(by: disposeBag)
         
-        // to follow setting
+        table.rx
+            .modelSelected(Article.self)
+            .subscribe { [weak self] value in
+                let sb: UIStoryboard = UIStoryboard(name: "Article", bundle: Bundle.main)
+                let view: ArticleViewController = sb.instantiateInitialViewController() as! ArticleViewController
+                
+                view.url = "http://www.keyakizaka46.com/" + value.element!.url
+                self?.show(view, sender: self)
+            }
+            .disposed(by: disposeBag)
+        
         let tapped = toFollowButton.rx.tap
         tapped.subscribe { [weak self] _ in
             let sb: UIStoryboard = UIStoryboard(name: "Follow", bundle: Bundle.main)
             let view: FollowViewController = sb.instantiateInitialViewController() as! FollowViewController
             
-            self?.present(view, animated: true, completion: nil)
+            self?.show(view, sender: self)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+        
+        viewModel.fetch()
     }
 
 }
