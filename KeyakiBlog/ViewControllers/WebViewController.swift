@@ -14,14 +14,6 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     private let webView = WKWebView()
     private(set) var url: URL!
     
-    private init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     class func instantiate(_ url: URL) -> WebViewController {
         let sb: UIStoryboard = UIStoryboard(name: "Web", bundle: Bundle.main)
         let view: WebViewController = sb.instantiateInitialViewController() as! WebViewController
@@ -39,7 +31,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
-        webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70.0).isActive = true
+        webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0.0).isActive = true
         webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0).isActive = true
         webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true
         webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true
