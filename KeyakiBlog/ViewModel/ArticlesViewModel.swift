@@ -31,7 +31,7 @@ struct ArticlesViewModel {
             newArticles.append(article)
         })
         
-        articles.value = newArticles
+        articles.value += newArticles
     }
 
 }

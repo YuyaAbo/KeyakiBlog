@@ -6,11 +6,12 @@ class ArticlesViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = ArticlesViewModel()
 
-    @IBOutlet weak var toFollowButton: UIBarButtonItem!
     @IBOutlet weak var table: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "欅ブログ"
         
         viewModel.updatedArticles
             .bindTo(table.rx.items(cellIdentifier: "ArticleCell", cellType: ArticleCell.self)) { row, element, cell in
@@ -29,12 +30,13 @@ class ArticlesViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        let tapped = toFollowButton.rx.tap
-        tapped.subscribe { [weak self] _ in
-            let sb: UIStoryboard = UIStoryboard(name: "Follow", bundle: Bundle.main)
-            let view: FollowViewController = sb.instantiateInitialViewController() as! FollowViewController
-            
-            self?.show(view, sender: self)
+        table.rx
+            .didScroll
+            .subscribe { [weak self] value in
+                if (self?.table.contentOffset.y)! >= ((self?.table.contentSize.height)! - (self?.table.bounds.size.height)!),
+                    (self?.table.isDragging)! {
+                    self?.viewModel.fetch()
+                }
             }
             .disposed(by: disposeBag)
         

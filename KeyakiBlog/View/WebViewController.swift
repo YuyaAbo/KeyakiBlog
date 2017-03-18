@@ -39,10 +39,11 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         webView.navigationDelegate = self
         webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
-        webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44.0).isActive = true
+        webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70.0).isActive = true
         webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0).isActive = true
         webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true
         webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true
+        view.sendSubview(toBack: webView)
         
         webView.load(URLRequest(url: url))
     }

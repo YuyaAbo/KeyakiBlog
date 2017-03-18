@@ -10,21 +10,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--欅ブログ-->
+        <!--Web View Controller-->
         <scene sceneID="hyI-xO-Tks">
             <objects>
-                <viewController storyboardIdentifier="Web" title="欅ブログ" id="PqV-xF-fvl" customClass="WebViewController" customModule="KeyakiBlog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Web" id="PqV-xF-fvl" customClass="WebViewController" customModule="KeyakiBlog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b3n-26-pPQ"/>
                         <viewControllerLayoutGuide type="bottom" id="XBl-QH-q8l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yrH-BX-u9S">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMk-R8-7pZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMk-R8-7pZ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Xjf-p8-tVo"/>
+                                </constraints>
                                 <items>
                                     <navigationItem id="XBe-xN-3UQ">
                                         <barButtonItem key="leftBarButtonItem" title="戻る" style="plain" id="zFh-Wf-MQA">
@@ -49,10 +52,16 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VMk-R8-7pZ" firstAttribute="leading" secondItem="yrH-BX-u9S" secondAttribute="leading" id="A9a-cv-ncc"/>
+                            <constraint firstItem="VMk-R8-7pZ" firstAttribute="top" secondItem="b3n-26-pPQ" secondAttribute="bottom" constant="623" id="AXh-Vc-3OY"/>
+                            <constraint firstAttribute="trailing" secondItem="VMk-R8-7pZ" secondAttribute="trailing" id="pkL-sV-3Kd"/>
+                            <constraint firstItem="XBl-QH-q8l" firstAttribute="top" secondItem="VMk-R8-7pZ" secondAttribute="bottom" id="shI-Uo-6nK"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="zFh-Wf-MQA" id="aCr-VP-Odi"/>
                         <outlet property="forwardButton" destination="Qvn-Gm-hXq" id="fKU-fJ-8XO"/>

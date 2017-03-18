@@ -13,6 +13,8 @@ class FollowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "推しメン"
+        
         viewModel.updatedMembers
             .bindTo(collectionView.rx.items(cellIdentifier: "MemberCell", cellType: MemberCell.self)) { row, element, cell in
                 cell.imageView?.image = element.image
@@ -25,16 +27,6 @@ class FollowViewController: UIViewController {
             .subscribe { [weak self] (value) in
                 self?.viewModel.follow(id: (value.element?.id)!)
             }.disposed(by: disposeBag)
-        
-        // go back main
-        let tapped = toMainButton.rx.tap
-        tapped.subscribe { [weak self] _ in
-            let sb: UIStoryboard = UIStoryboard(name: "Articles", bundle: Bundle.main)
-            let view: ArticlesViewController = sb.instantiateInitialViewController() as! ArticlesViewController
-            
-            self?.show(view, sender: self)
-            }
-            .disposed(by: disposeBag)
         
         viewModel.fetch()
     }

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f6a-wa-kHZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8Mh-JL-Z8B">
+            <objects>
+                <tabBarController id="f6a-wa-kHZ" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5AJ-B1-Kjg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.50118534482758625" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Q2J-VI-a9f" kind="relationship" relationship="viewControllers" id="5aU-oE-f9N"/>
+                        <segue destination="HU1-1y-hz8" kind="relationship" relationship="viewControllers" id="gCz-9W-0Pe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="stZ-y4-KA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743" y="-134"/>
+        </scene>
+        <!--Follow-->
+        <scene sceneID="QV9-ix-9KY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Follow" id="fu8-hB-VUx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="08e-nC-wKz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2YE-Zn-Im5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848" y="101"/>
+        </scene>
+        <!--Articles-->
+        <scene sceneID="5Ih-yx-rSa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Articles" id="xv6-gR-kKh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bIz-7l-WdW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="twc-ek-Dia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="-556"/>
+        </scene>
+        <!--推しメン-->
+        <scene sceneID="bqN-uO-Rem">
+            <objects>
+                <navigationController title="推しメン" automaticallyAdjustsScrollViewInsets="NO" id="HU1-1y-hz8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="推しメン" id="mjO-3Q-qTM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKY-7p-92R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fu8-hB-VUx" kind="relationship" relationship="rootViewController" id="1as-JY-axE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIC-Gq-aH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="182" y="102"/>
+        </scene>
+        <!--欅ブログ-->
+        <scene sceneID="PoR-Ml-Q2B">
+            <objects>
+                <navigationController title="欅ブログ" automaticallyAdjustsScrollViewInsets="NO" id="Q2J-VI-a9f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ブログ" id="lZE-Mm-ZZE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hIK-ae-fNk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xv6-gR-kKh" kind="relationship" relationship="rootViewController" id="W2q-HO-6e2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwW-wO-5S5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="182" y="-555"/>
+        </scene>
+    </scenes>
+</document>
