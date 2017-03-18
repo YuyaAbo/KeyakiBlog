@@ -24,11 +24,8 @@ class ArticlesViewController: UIViewController {
         table.rx
             .modelSelected(Article.self)
             .subscribe { [weak self] value in
-                let sb: UIStoryboard = UIStoryboard(name: "Article", bundle: Bundle.main)
-                let view: ArticleViewController = sb.instantiateInitialViewController() as! ArticleViewController
-                
-                view.url = "http://www.keyakizaka46.com/" + value.element!.url
-                self?.show(view, sender: self)
+                let url = URL(string: "http://www.keyakizaka46.com/" + value.element!.url)!
+                self?.show(WebViewController.instantiate(url), sender: self)
             }
             .disposed(by: disposeBag)
         
