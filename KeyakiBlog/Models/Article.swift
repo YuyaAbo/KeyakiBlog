@@ -1,3 +1,5 @@
+import UIKit
+
 struct Article {
 
     let id: Int
@@ -5,9 +7,9 @@ struct Article {
     let url: String
     let author: String
     let publishedAt: String
-    let image: String?
+    let image: UIImage?
     
-    init(_ id: Int, _ title: String, _ url: String, _ author: String, _ publishedAt: String, _ image: String? = nil) {
+    init(_ id: Int, _ title: String, _ url: String, _ author: String, _ publishedAt: String, _ image: UIImage? = nil) {
         self.id = id
         self.title = title
         self.url = url

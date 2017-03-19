@@ -32,6 +32,7 @@ class ArticlesViewController: UIViewController {
                 cell.author?.text = element.author
                 cell.url = element.url
                 cell.publishedAt?.text = element.publishedAt
+                cell.titleImage.image = element.image
             }
             .disposed(by: disposeBag)
         

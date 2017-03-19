@@ -28,7 +28,22 @@ struct ArticlesViewModel {
             let author: String = (element.css("p.name").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
             let publishedAt: String = (element.css("div.box-bottom").first?.css("li").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
             
-            let article = Article(0, title, url, author, publishedAt)
+            var image: UIImage
+            if let imageHref: String = element.css("img[src]").first?["src"] {
+                let imageUrl = URL(string: imageHref)
+                var data = Data()
+                do {
+                    data = try Data(contentsOf: imageUrl!)
+                    image = UIImage(data: data)!
+                } catch {
+                    // TODO: エラー処理
+                    image = #imageLiteral(resourceName: "Keyaki")
+                }
+            } else {
+                image = #imageLiteral(resourceName: "Keyaki")
+            }
+            
+            let article = Article(0, title, url, author, publishedAt, image)
             newArticles.append(article)
         })
         
