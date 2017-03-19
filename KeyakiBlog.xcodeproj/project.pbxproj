@@ -86,6 +86,7 @@
 				7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */,
 			);
 			name = DataStores;
+			path = DataStores;
 			sourceTree = "<group>";
 		};
 		7B16318C1E7DCD0B002CFBD3 /* ViewControllers */ = {
@@ -113,9 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
+				7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */,
 				7B1B9F861E74A14B003EF537 /* MemberCell.swift */,
 				7B597FC71E7715880078AF25 /* MenuCell.swift */,
-				7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
