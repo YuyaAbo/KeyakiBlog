@@ -14,7 +14,7 @@ struct FollowViewModel {
         
         for member in MemberList.enumerate {
             let image: UIImage = member.image
-            let isFollow: Bool = false
+            let isFollow: Bool = UserDefaultsClient.instantinate(memberID: member.rawValue).memberIsFollowed
             newMembers.append(Member(member.rawValue, image, isFollow))
         }
         
@@ -23,6 +23,7 @@ struct FollowViewModel {
     
     func follow(id: Int) {
         let followed = members.value[id].isFollow
+        UserDefaultsClient.instantinate(memberID: id).memberIsFollowed = !followed
         members.value[id].isFollow = !followed
     }
     

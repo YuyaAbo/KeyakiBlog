@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0020901E7E2663007B3EFB /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */; };
+		7B0020931E7E3366007B3EFB /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */; };
 		7B1631851E7D9B91002CFBD3 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1631841E7D9B91002CFBD3 /* Web.storyboard */; };
 		7B1631871E7D9DFC002CFBD3 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1631861E7D9DFC002CFBD3 /* WebViewController.swift */; };
 		7B1631891E7DA0ED002CFBD3 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1631881E7DA0ED002CFBD3 /* WebViewModel.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		5570718D1352D4B0CD93C0C4 /* Pods-KeyakiBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyakiBlog.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeyakiBlog/Pods-KeyakiBlog.release.xcconfig"; sourceTree = "<group>"; };
+		7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		7B1631841E7D9B91002CFBD3 /* Web.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		7B1631861E7D9DFC002CFBD3 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7B1631881E7DA0ED002CFBD3 /* WebViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +80,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7B0020941E7E3370007B3EFB /* DataStores */ = {
+			isa = PBXGroup;
+			children = (
+				7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */,
+			);
+			name = DataStores;
+			sourceTree = "<group>";
+		};
 		7B16318C1E7DCD0B002CFBD3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +115,7 @@
 				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
 				7B1B9F861E74A14B003EF537 /* MemberCell.swift */,
 				7B597FC71E7715880078AF25 /* MenuCell.swift */,
+				7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 		7BC63E501E740F81009E956D /* KeyakiBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7B0020941E7E3370007B3EFB /* DataStores */,
 				7B1B9F801E7494E1003EF537 /* Models */,
 				7B1B9F791E74936A003EF537 /* Storyboards */,
 				7B16318C1E7DCD0B002CFBD3 /* ViewControllers */,
@@ -303,10 +317,12 @@
 				7B1B9F7B1E7493B1003EF537 /* FollowViewController.swift in Sources */,
 				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7B1B9F831E749876003EF537 /* MemberList.swift in Sources */,
+				7B0020901E7E2663007B3EFB /* DesignableImageView.swift in Sources */,
 				7BC63E681E741400009E956D /* ArticlesViewModel.swift in Sources */,
 				7B1B9F871E74A14B003EF537 /* MemberCell.swift in Sources */,
 				7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */,
 				7B597FC81E7715880078AF25 /* MenuCell.swift in Sources */,
+				7B0020931E7E3366007B3EFB /* UserDefaultsClient.swift in Sources */,
 				7B1631871E7D9DFC002CFBD3 /* WebViewController.swift in Sources */,
 				7B1B9F761E748C99003EF537 /* Member.swift in Sources */,
 				7B1631891E7DA0ED002CFBD3 /* WebViewModel.swift in Sources */,

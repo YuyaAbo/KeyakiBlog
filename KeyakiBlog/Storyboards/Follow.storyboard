@@ -23,33 +23,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-U2-kYk">
-                                <rect key="frame" x="67" y="97" width="240" height="474"/>
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5is-wW-avg">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VyS-WY-br9">
+                                    <size key="itemSize" width="75" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemberCell" id="rsQ-Yo-IIi" customClass="MemberCell" customModule="KeyakiBlog" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ishimori" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-5h-2Ar">
-                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="57"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ishimori" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-5h-2Ar" customClass="DesignableImageView" customModule="KeyakiBlog" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="8" width="67" height="67"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="9tj-qv-rad">
-                                                    <rect key="frame" x="38" y="35" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="9tj-qv-rad">
+                                                    <rect key="frame" x="49" y="0.0" width="26" height="26"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstItem="9tj-qv-rad" firstAttribute="leading" secondItem="rsQ-Yo-IIi" secondAttribute="leading" constant="49" id="1Pq-qc-wa3"/>
+                                            <constraint firstItem="U2l-5h-2Ar" firstAttribute="top" secondItem="rsQ-Yo-IIi" secondAttribute="top" constant="8" id="1ta-Kv-WrK"/>
+                                            <constraint firstItem="U2l-5h-2Ar" firstAttribute="leading" secondItem="rsQ-Yo-IIi" secondAttribute="leading" id="33d-do-Ca3"/>
+                                            <constraint firstAttribute="trailing" secondItem="U2l-5h-2Ar" secondAttribute="trailing" constant="8" id="6ls-ap-RSe"/>
+                                            <constraint firstItem="9tj-qv-rad" firstAttribute="top" secondItem="rsQ-Yo-IIi" secondAttribute="top" id="c17-CJ-ufY"/>
+                                            <constraint firstAttribute="trailing" secondItem="9tj-qv-rad" secondAttribute="trailing" id="g8a-qn-Sua"/>
+                                            <constraint firstAttribute="bottom" secondItem="U2l-5h-2Ar" secondAttribute="bottom" id="nDh-pO-dZt"/>
+                                            <constraint firstAttribute="bottom" secondItem="9tj-qv-rad" secondAttribute="bottom" constant="49" id="pEo-Na-WuN"/>
+                                        </constraints>
+                                        <size key="customSize" width="75" height="75"/>
                                         <connections>
                                             <outlet property="imageView" destination="U2l-5h-2Ar" id="h34-da-qOC"/>
                                             <outlet property="star" destination="9tj-qv-rad" id="hdX-pe-iS9"/>
@@ -60,10 +73,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Scw-U2-kYk" firstAttribute="leading" secondItem="yAZ-UO-neP" secondAttribute="leadingMargin" constant="51" id="FOp-7r-CaZ"/>
-                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="97" id="Jj4-ya-C1O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Scw-U2-kYk" secondAttribute="trailing" constant="52" id="NcM-Ac-u8n"/>
-                            <constraint firstItem="MpK-aQ-3hP" firstAttribute="top" secondItem="Scw-U2-kYk" secondAttribute="bottom" constant="96" id="d0N-aZ-Cjk"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="trailing" secondItem="yAZ-UO-neP" secondAttribute="trailingMargin" id="2hs-qc-rCy"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="leading" secondItem="yAZ-UO-neP" secondAttribute="leadingMargin" id="Ie5-Aa-z4o"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="20" id="NK4-Pw-Hkm"/>
+                            <constraint firstItem="MpK-aQ-3hP" firstAttribute="top" secondItem="Scw-U2-kYk" secondAttribute="bottom" constant="20" id="pw5-tm-JOn"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -78,6 +91,6 @@
     </scenes>
     <resources>
         <image name="Ishimori" width="131" height="160"/>
-        <image name="Star" width="237" height="226"/>
+        <image name="Star" width="50" height="48"/>
     </resources>
 </document>

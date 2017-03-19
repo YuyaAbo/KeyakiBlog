@@ -30,4 +30,5 @@ class FollowViewController: UIViewController {
         
         viewModel.fetch()
     }
+
 }
