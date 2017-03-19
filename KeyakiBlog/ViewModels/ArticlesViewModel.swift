@@ -4,13 +4,14 @@ import Kanna
 struct ArticlesViewModel {
     
     private var articles = Variable<[Article]>([])
+    private var pageObject = Variable<Int>(0)
     
     var updatedArticles: Observable<[Article]> {
         return articles.asObservable()
     }
     
     func fetch() {
-        let url = URL(string: "http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000")
+        let url = URL(string: "http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page=\(pageObject.value)")
         var data = Data()
         do {
             data = try Data(contentsOf: url!)
@@ -32,6 +33,13 @@ struct ArticlesViewModel {
         })
         
         articles.value += newArticles
+        pageObject.value += 1
+    }
+    
+    func refresh() {
+        pageObject.value = 0
+        articles.value = []
+        fetch()
     }
 
 }

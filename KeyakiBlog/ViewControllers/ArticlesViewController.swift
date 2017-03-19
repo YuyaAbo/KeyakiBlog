@@ -7,11 +7,24 @@ class ArticlesViewController: UIViewController {
     private let viewModel = ArticlesViewModel()
 
     @IBOutlet weak var table: UITableView!
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "欅ブログ"
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
+        table.addSubview(refreshControl)
+        
+        refreshControl.rx.controlEvent(UIControlEvents.valueChanged)
+            .subscribe { [weak self] value in
+                self?.viewModel.refresh()
+                self?.table.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
+            .disposed(by: disposeBag)
         
         viewModel.updatedArticles
             .bindTo(table.rx.items(cellIdentifier: "ArticleCell", cellType: ArticleCell.self)) { row, element, cell in
