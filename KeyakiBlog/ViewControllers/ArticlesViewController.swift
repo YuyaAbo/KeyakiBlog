@@ -14,6 +14,8 @@ class ArticlesViewController: UIViewController {
         
         title = "欅ブログ"
         
+        table.estimatedRowHeight = 63
+        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         table.addSubview(refreshControl)
