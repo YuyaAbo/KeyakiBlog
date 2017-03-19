@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276D65D86477031C767CC62B /* Pods_KeyakiBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882A61FFEB1AF2A64CF4FDF3 /* Pods_KeyakiBlog.framework */; };
 		7B0020901E7E2663007B3EFB /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */; };
 		7B0020931E7E3366007B3EFB /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */; };
 		7B1631851E7D9B91002CFBD3 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1631841E7D9B91002CFBD3 /* Web.storyboard */; };
@@ -29,6 +30,7 @@
 		7BC63E591E740F81009E956D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E581E740F81009E956D /* Assets.xcassets */; };
 		7BC63E5C1E740F81009E956D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */; };
 		7BC63E681E741400009E956D /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E671E741400009E956D /* ArticlesViewModel.swift */; };
+		7BCF53CB1E7E72B50056122B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF53CA1E7E72B50056122B /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		7BC63E5B1E740F81009E956D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BC63E5D1E740F81009E956D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC63E671E741400009E956D /* ArticlesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		7BCF53CA1E7E72B50056122B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		882A61FFEB1AF2A64CF4FDF3 /* Pods_KeyakiBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyakiBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B57A76E1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework in Frameworks */,
+				276D65D86477031C767CC62B /* Pods_KeyakiBlog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				7B57A76D1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework */,
+				882A61FFEB1AF2A64CF4FDF3 /* Pods_KeyakiBlog.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -84,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				7B0020921E7E3366007B3EFB /* UserDefaultsClient.swift */,
+				7BCF53CA1E7E72B50056122B /* APIClient.swift */,
 			);
-			name = DataStores;
 			path = DataStores;
 			sourceTree = "<group>";
 		};
@@ -315,6 +321,7 @@
 				7BC63E541E740F81009E956D /* ArticlesViewController.swift in Sources */,
 				7B1B9F5F1E7416E4003EF537 /* Article.swift in Sources */,
 				7B1B9F7F1E749495003EF537 /* FollowViewModel.swift in Sources */,
+				7BCF53CB1E7E72B50056122B /* APIClient.swift in Sources */,
 				7B1B9F7B1E7493B1003EF537 /* FollowViewController.swift in Sources */,
 				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7B1B9F831E749876003EF537 /* MemberList.swift in Sources */,
