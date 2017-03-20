@@ -37,6 +37,7 @@ struct ArticlesViewModel {
                     let author: String = (element.css("p.name").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
                     let publishedAt: String = (element.css("div.box-bottom").first?.css("li").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
                     
+                    // SDWebImageのsb_setImageを使いたいのでUIImageではなくUIImageViewを使ってるけどちょと微妙
                     let imageView = UIImageView()
                     if let imageHref: String = element.css("img[src]").first?["src"] {
                         imageView.sd_setImage(with: URL(string: imageHref), placeholderImage: #imageLiteral(resourceName: "Keyaki"))
@@ -51,9 +52,11 @@ struct ArticlesViewModel {
                 self.pageObject.value += 1
             }, onError: { (error) in
                 self.fetchStatusObject.value = FetchStatus.default
+                // TODO: エラー文言表示する
                 print(error)
             }, onCompleted: {
                 self.fetchStatusObject.value = FetchStatus.default
+                // TODO: 読み込み完了文言を表示してもいいかも
                 print("Completed")
             }) {
                 print("Disposed")
@@ -61,6 +64,8 @@ struct ArticlesViewModel {
     }
     
     func refresh() {
+        // fetch完了する前にVariableのvalueが空になるのでその時点でsubscribeされて
+        // テーブルが空になるのでちょと微妙
         pageObject.value = 0
         articles.value = []
         fetch()
