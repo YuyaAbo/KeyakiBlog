@@ -8,6 +8,7 @@ class ArticlesViewController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
     var refreshControl: UIRefreshControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +21,25 @@ class ArticlesViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         table.addSubview(refreshControl)
         
+        viewModel.fetchStatus
+            .map {
+                // 2個あるから微妙
+                switch $0 {
+                case .default:
+                    self.activityIndicator.stopAnimating()
+                    self.refreshControl.endRefreshing()
+                case .fetching:
+                    self.activityIndicator.startAnimating()
+                    self.refreshControl.beginRefreshing()
+                }
+            }
+            .subscribe()
+            .disposed(by: disposeBag)
+        
         refreshControl.rx.controlEvent(UIControlEvents.valueChanged)
             .subscribe { [weak self] value in
                 self?.viewModel.refresh()
                 self?.table.reloadData()
-                self?.refreshControl.endRefreshing()
             }
             .disposed(by: disposeBag)
         
@@ -34,7 +49,7 @@ class ArticlesViewController: UIViewController {
                 cell.author?.text = element.author
                 cell.url = element.url
                 cell.publishedAt?.text = element.publishedAt
-                cell.titleImage.image = element.image
+                cell.titleImage.image = element.imageView.image
             }
             .disposed(by: disposeBag)
         
@@ -46,6 +61,7 @@ class ArticlesViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        // 追加読み込み、判定微妙
         table.rx
             .didScroll
             .subscribe { [weak self] value in

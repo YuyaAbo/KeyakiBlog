@@ -10,5 +10,6 @@ target 'KeyakiBlog' do
   pod 'Kanna', '~> 2.1.0'
   pod 'RxSwift', '~> 3.0'
   pod 'RxCocoa', '~> 3.0'
+  pod 'SDWebImage', '~>3.8'
 
 end

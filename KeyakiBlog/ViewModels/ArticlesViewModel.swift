@@ -1,5 +1,6 @@
 import RxSwift
 import Kanna
+import SDWebImage
 
 struct ArticlesViewModel {
     
@@ -7,16 +8,25 @@ struct ArticlesViewModel {
     
     private var articles = Variable<[Article]>([])
     private var pageObject = Variable<Int>(0)
+    private let fetchStatusObject = Variable<FetchStatus>(.default)
+    enum FetchStatus {
+        case `default`
+        case fetching
+    }
     
     var updatedArticles: Observable<[Article]> {
         return articles.asObservable()
     }
+    var fetchStatus: Observable<FetchStatus> {
+        return fetchStatusObject.asObservable()
+    }
     
     func fetch() {
+        
+        if fetchStatusObject.value == .fetching { return }
+        fetchStatusObject.value = .fetching
 
         APIClient.fetchArticles(page: pageObject.value)
-            .timeout(RxTimeInterval.abs(10), scheduler: ConcurrentMainScheduler.instance)
-            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { value in
                 let doc = HTML(html: value as! String, encoding: String.Encoding.utf8)
                 var newArticles = [Article]()
@@ -27,39 +37,27 @@ struct ArticlesViewModel {
                     let author: String = (element.css("p.name").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
                     let publishedAt: String = (element.css("div.box-bottom").first?.css("li").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
                     
-                    var image: UIImage!
+                    let imageView = UIImageView()
                     if let imageHref: String = element.css("img[src]").first?["src"] {
-                        do {
-                            let data = try Data(contentsOf: URL(string: imageHref)!)
-                            image = UIImage(data: data)
-                        } catch {
-                            // TODO: エラー処理
-                            image = #imageLiteral(resourceName: "Keyaki")
-                        }
+                        imageView.sd_setImage(with: URL(string: imageHref), placeholderImage: #imageLiteral(resourceName: "Keyaki"))
                     } else {
-                        image = #imageLiteral(resourceName: "Keyaki")
+                        imageView.image = #imageLiteral(resourceName: "Keyaki")
                     }
                     
-                    let article = Article(0, title, url, author, publishedAt, image)
+                    let article = Article(0, title, url, author, publishedAt, imageView)
                     newArticles.append(article)
                 })
                 self.articles.value += newArticles
                 self.pageObject.value += 1
             }, onError: { (error) in
+                self.fetchStatusObject.value = FetchStatus.default
                 print(error)
-            }, onCompleted: { 
+            }, onCompleted: {
+                self.fetchStatusObject.value = FetchStatus.default
                 print("Completed")
-            }) { 
+            }) {
                 print("Disposed")
         }.disposed(by: disposeBag)
-        
-        /*let url = URL(string: "http://www.keyakizaka46.com/s/k46o/diary/member/list?ima=0000&page=\(pageObject.value)")
-        var data = Data()
-        do {
-            data = try Data(contentsOf: url!)
-        } catch {
-            // TODO: エラー処理
-        }*/
     }
     
     func refresh() {
