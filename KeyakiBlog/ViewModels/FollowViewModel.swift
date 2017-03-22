@@ -3,10 +3,10 @@ import RxSwift
 
 struct FollowViewModel {
     
-    private var members = Variable<[Member]>([])
+    private var membersObject = Variable<[Member]>([])
     
-    var updatedMembers: Observable<[Member]> {
-        return members.asObservable()
+    var members: Observable<[Member]> {
+        return membersObject.asObservable()
     }
     
     func fetch() {
@@ -15,16 +15,24 @@ struct FollowViewModel {
         for member in MemberList.enumerate {
             let image: UIImage = member.image
             let isFollow: Bool = UserDefaultsClient.instantinate(memberID: member.rawValue).memberIsFollowed
+            if isFollow {
+                FollowSubject.followedIdsObject.value.append(member.rawValue)
+            }
             newMembers.append(Member(member.rawValue, image, isFollow))
         }
         
-        members.value = newMembers
+        membersObject.value = newMembers
     }
     
     func follow(id: Int) {
-        let followed = members.value[id].isFollow
+        let followed = membersObject.value[id].isFollow
         UserDefaultsClient.instantinate(memberID: id).memberIsFollowed = !followed
-        members.value[id].isFollow = !followed
+        if followed {
+            FollowSubject.followedIdsObject.value = FollowSubject.followedIdsObject.value.filter { $0 != id }
+        } else {
+            FollowSubject.followedIdsObject.value.append(id)
+        }
+        membersObject.value[id].isFollow = !followed
     }
     
 }

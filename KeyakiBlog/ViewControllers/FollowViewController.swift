@@ -15,7 +15,7 @@ class FollowViewController: UIViewController {
         
         title = "推しメン"
         
-        viewModel.updatedMembers
+        viewModel.members
             .bindTo(collectionView.rx.items(cellIdentifier: "MemberCell", cellType: MemberCell.self)) { row, element, cell in
                 cell.imageView?.image = element.image
                 cell.star?.isHidden = !element.isFollow

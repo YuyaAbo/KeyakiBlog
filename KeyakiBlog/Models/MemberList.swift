@@ -22,6 +22,7 @@ enum MemberList: Int {
     case berika
     case berisa
     
+    // enumの要素を回すため
     static var enumerate: AnySequence<MemberList> {
         return AnySequence { () -> AnyIterator<MemberList> in
             var i = 0
@@ -36,15 +37,45 @@ enum MemberList: Int {
     var image: UIImage {
         switch self {
         case .ishimori:
-            return #imageLiteral(resourceName: "Ishimori")
+            return #imageLiteral(resourceName: "ishimori")
         case .imaizumi:
-            return #imageLiteral(resourceName: "Imaizumi")
+            return #imageLiteral(resourceName: "imaizumi")
         case .uemura:
-            return #imageLiteral(resourceName: "Uemura")
+            return #imageLiteral(resourceName: "uemura")
         case .ozeki:
-            return #imageLiteral(resourceName: "Ozeki")
-        default:
-            return #imageLiteral(resourceName: "Ishimori")
+            return #imageLiteral(resourceName: "ozeki")
+        case .oda:
+            return #imageLiteral(resourceName: "oda")
+        case .koike:
+            return #imageLiteral(resourceName: "koike")
+        case .kobayashi:
+            return #imageLiteral(resourceName: "kobayashi")
+        case .saito:
+            return #imageLiteral(resourceName: "saito")
+        case .sato:
+            return #imageLiteral(resourceName: "sato")
+        case .shida:
+            return #imageLiteral(resourceName: "shida")
+        case .sugai:
+            return #imageLiteral(resourceName: "sugai")
+        case .suzumoto:
+            return #imageLiteral(resourceName: "suzumoto")
+        case .nagasawa:
+            return #imageLiteral(resourceName: "nagasawa")
+        case .habu:
+            return #imageLiteral(resourceName: "habu")
+        case .harada:
+            return #imageLiteral(resourceName: "harada")
+        case .hirate:
+            return #imageLiteral(resourceName: "hirate")
+        case .moriya:
+            return #imageLiteral(resourceName: "moriya")
+        case .yonetani:
+            return #imageLiteral(resourceName: "yonetani")
+        case .berika:
+            return #imageLiteral(resourceName: "rika")
+        case .berisa:
+            return #imageLiteral(resourceName: "risa")
         }
     }
     

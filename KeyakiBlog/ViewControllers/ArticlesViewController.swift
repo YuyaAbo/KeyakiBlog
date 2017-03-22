@@ -39,11 +39,12 @@ class ArticlesViewController: UIViewController {
         refreshControl.rx.controlEvent(UIControlEvents.valueChanged)
             .subscribe { [weak self] value in
                 self?.viewModel.refresh()
+                self?.viewModel.fetch()
                 self?.table.reloadData()
             }
             .disposed(by: disposeBag)
         
-        viewModel.updatedArticles
+        viewModel.articles
             .bindTo(table.rx.items(cellIdentifier: "ArticleCell", cellType: ArticleCell.self)) { row, element, cell in
                 cell.title?.text = element.title
                 cell.author?.text = element.author
@@ -73,6 +74,18 @@ class ArticlesViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.fetch()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // ひとりでも推しメンがいた場合は
+        if FollowSubject.followedIdsObject.value.count >= 1 {
+            self.viewModel.refresh()
+            FollowSubject.followedIdsObject.value.forEach({ [weak self] (id) in
+                print(id)
+                self?.viewModel.fetch(member: id)
+            })
+            self.table.reloadData()
+        }
     }
 
 }

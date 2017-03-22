@@ -24,6 +24,7 @@
 		7B1B9F871E74A14B003EF537 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F861E74A14B003EF537 /* MemberCell.swift */; };
 		7B57A76E1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B57A76D1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework */; };
 		7B597FC81E7715880078AF25 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B597FC71E7715880078AF25 /* MenuCell.swift */; };
+		7BA3E2171E806241002CDE77 /* FollowSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3E2161E806241002CDE77 /* FollowSubject.swift */; };
 		7BC63E521E740F81009E956D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E511E740F81009E956D /* AppDelegate.swift */; };
 		7BC63E541E740F81009E956D /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E531E740F81009E956D /* ArticlesViewController.swift */; };
 		7BC63E571E740F81009E956D /* Articles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E551E740F81009E956D /* Articles.storyboard */; };
@@ -52,6 +53,7 @@
 		7B57A76D1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KeyakiBlog.framework; path = "../../Library/Developer/Xcode/DerivedData/KeyakiBlog-dxchshvwhycrdzayzwpzuidtjbry/Build/Products/Debug-iphonesimulator/Pods_KeyakiBlog.framework"; sourceTree = "<group>"; };
 		7B597FC71E7715880078AF25 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		7B6DB5D38DE989585EF2BF82 /* Pods-KeyakiBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyakiBlog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeyakiBlog/Pods-KeyakiBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		7BA3E2161E806241002CDE77 /* FollowSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowSubject.swift; sourceTree = "<group>"; };
 		7BC63E4E1E740F81009E956D /* KeyakiBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyakiBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC63E511E740F81009E956D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC63E531E740F81009E956D /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7BA3E2151E8061B8002CDE77 /* GlobalStreams */ = {
+			isa = PBXGroup;
+			children = (
+				7BA3E2161E806241002CDE77 /* FollowSubject.swift */,
+			);
+			name = GlobalStreams;
+			sourceTree = "<group>";
+		};
 		7BC63E451E740F81009E956D = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		7BC63E501E740F81009E956D /* KeyakiBlog */ = {
 			isa = PBXGroup;
 			children = (
+				7BA3E2151E8061B8002CDE77 /* GlobalStreams */,
 				7B0020941E7E3370007B3EFB /* DataStores */,
 				7B1B9F801E7494E1003EF537 /* Models */,
 				7B1B9F791E74936A003EF537 /* Storyboards */,
@@ -325,6 +336,7 @@
 				7B1B9F7F1E749495003EF537 /* FollowViewModel.swift in Sources */,
 				7BCF53CB1E7E72B50056122B /* APIClient.swift in Sources */,
 				7B1B9F7B1E7493B1003EF537 /* FollowViewController.swift in Sources */,
+				7BA3E2171E806241002CDE77 /* FollowSubject.swift in Sources */,
 				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7B1B9F831E749876003EF537 /* MemberList.swift in Sources */,
 				7B0020901E7E2663007B3EFB /* DesignableImageView.swift in Sources */,
