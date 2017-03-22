@@ -64,8 +64,13 @@ class ArticlesViewController: UIViewController {
         table.rx
             .modelSelected(Article.self)
             .subscribe { [weak self] value in
-                let url = URL(string: "http://www.keyakizaka46.com/" + value.element!.url)!
-                self?.show(WebViewController.instantiate(url), sender: self)
+                if value.element!.url.contains("http") {
+                    let url = URL(string: value.element!.url)!
+                    self?.show(WebViewController.instantiate(url), sender: self)
+                } else {
+                    let url = URL(string: "http://www.keyakizaka46.com/" + value.element!.url)!
+                    self?.show(WebViewController.instantiate(url), sender: self)
+                }
             }
             .disposed(by: disposeBag)
         
