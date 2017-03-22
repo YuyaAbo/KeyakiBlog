@@ -3,7 +3,7 @@ import Foundation
 class UserDefaultsClient {
     
     private enum Key: String {
-        case follow = "isFollowed"
+        case recommend = "isRecommended"
     }
     
     private var memberID: Int = 0
@@ -19,13 +19,13 @@ class UserDefaultsClient {
         return UserDefaults.standard
     }
     
-    var memberIsFollowed: Bool {
+    var memberIsRecommended: Bool {
         set {
-            defaults.set(newValue, forKey: "\(memberID)" + Key.follow.rawValue)
+            defaults.set(newValue, forKey: "\(memberID)" + Key.recommend.rawValue)
             defaults.synchronize()
         }
         get {
-            return defaults.bool(forKey: "\(memberID)" + Key.follow.rawValue)
+            return defaults.bool(forKey: "\(memberID)" + Key.recommend.rawValue)
         }
     }
 

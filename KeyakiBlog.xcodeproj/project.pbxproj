@@ -17,9 +17,9 @@
 		7B1B9F5F1E7416E4003EF537 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F5E1E7416E4003EF537 /* Article.swift */; };
 		7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F6C1E745313003EF537 /* ArticleCell.swift */; };
 		7B1B9F761E748C99003EF537 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F751E748C99003EF537 /* Member.swift */; };
-		7B1B9F781E749115003EF537 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B9F771E749115003EF537 /* Follow.storyboard */; };
-		7B1B9F7B1E7493B1003EF537 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F7A1E7493B1003EF537 /* FollowViewController.swift */; };
-		7B1B9F7F1E749495003EF537 /* FollowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F7E1E749495003EF537 /* FollowViewModel.swift */; };
+		7B1B9F781E749115003EF537 /* Recommend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B9F771E749115003EF537 /* Recommend.storyboard */; };
+		7B1B9F7B1E7493B1003EF537 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F7A1E7493B1003EF537 /* RecommendViewController.swift */; };
+		7B1B9F7F1E749495003EF537 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F7E1E749495003EF537 /* RecommendViewModel.swift */; };
 		7B1B9F831E749876003EF537 /* MemberList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F821E749876003EF537 /* MemberList.swift */; };
 		7B1B9F871E74A14B003EF537 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B9F861E74A14B003EF537 /* MemberCell.swift */; };
 		7B57A76E1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B57A76D1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework */; };
@@ -45,9 +45,9 @@
 		7B1B9F5E1E7416E4003EF537 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		7B1B9F6C1E745313003EF537 /* ArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		7B1B9F751E748C99003EF537 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
-		7B1B9F771E749115003EF537 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
-		7B1B9F7A1E7493B1003EF537 /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
-		7B1B9F7E1E749495003EF537 /* FollowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewModel.swift; sourceTree = "<group>"; };
+		7B1B9F771E749115003EF537 /* Recommend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Recommend.storyboard; sourceTree = "<group>"; };
+		7B1B9F7A1E7493B1003EF537 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		7B1B9F7E1E749495003EF537 /* RecommendViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 		7B1B9F821E749876003EF537 /* MemberList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberList.swift; sourceTree = "<group>"; };
 		7B1B9F861E74A14B003EF537 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		7B57A76D1E7DCF0E00617C6A /* Pods_KeyakiBlog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KeyakiBlog.framework; path = "../../Library/Developer/Xcode/DerivedData/KeyakiBlog-dxchshvwhycrdzayzwpzuidtjbry/Build/Products/Debug-iphonesimulator/Pods_KeyakiBlog.framework"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC63E531E740F81009E956D /* ArticlesViewController.swift */,
-				7B1B9F7A1E7493B1003EF537 /* FollowViewController.swift */,
+				7B1B9F7A1E7493B1003EF537 /* RecommendViewController.swift */,
 				7B1631861E7D9DFC002CFBD3 /* WebViewController.swift */,
 			);
 			path = ViewControllers;
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC63E551E740F81009E956D /* Articles.storyboard */,
-				7B1B9F771E749115003EF537 /* Follow.storyboard */,
+				7B1B9F771E749115003EF537 /* Recommend.storyboard */,
 				7B16318A1E7DBC5F002CFBD3 /* MainTab.storyboard */,
 				7B1631841E7D9B91002CFBD3 /* Web.storyboard */,
 			);
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC63E671E741400009E956D /* ArticlesViewModel.swift */,
-				7B1B9F7E1E749495003EF537 /* FollowViewModel.swift */,
+				7B1B9F7E1E749495003EF537 /* RecommendViewModel.swift */,
 				7B1631881E7DA0ED002CFBD3 /* WebViewModel.swift */,
 			);
 			path = ViewModels;
@@ -267,7 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B1B9F781E749115003EF537 /* Follow.storyboard in Resources */,
+				7B1B9F781E749115003EF537 /* Recommend.storyboard in Resources */,
 				7B16318B1E7DBC5F002CFBD3 /* MainTab.storyboard in Resources */,
 				7BC63E5C1E740F81009E956D /* LaunchScreen.storyboard in Resources */,
 				7BC63E591E740F81009E956D /* Assets.xcassets in Resources */,
@@ -333,9 +333,9 @@
 			files = (
 				7BC63E541E740F81009E956D /* ArticlesViewController.swift in Sources */,
 				7B1B9F5F1E7416E4003EF537 /* Article.swift in Sources */,
-				7B1B9F7F1E749495003EF537 /* FollowViewModel.swift in Sources */,
+				7B1B9F7F1E749495003EF537 /* RecommendViewModel.swift in Sources */,
 				7BCF53CB1E7E72B50056122B /* APIClient.swift in Sources */,
-				7B1B9F7B1E7493B1003EF537 /* FollowViewController.swift in Sources */,
+				7B1B9F7B1E7493B1003EF537 /* RecommendViewController.swift in Sources */,
 				7BA3E2171E806241002CDE77 /* FollowSubject.swift in Sources */,
 				7B1B9F6D1E745313003EF537 /* ArticleCell.swift in Sources */,
 				7B1B9F831E749876003EF537 /* MemberList.swift in Sources */,

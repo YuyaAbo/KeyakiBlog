@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Follow View Controller-->
+        <!--Recommend View Controller-->
         <scene sceneID="EuP-Yh-0MS">
             <objects>
-                <viewController storyboardIdentifier="Follow" id="EPJ-JE-yJK" customClass="FollowViewController" customModule="KeyakiBlog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Recommend" id="EPJ-JE-yJK" customClass="RecommendViewController" customModule="KeyakiBlog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mCz-8J-luV"/>
                         <viewControllerLayoutGuide type="bottom" id="MpK-aQ-3hP"/>
@@ -39,7 +39,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ishimori" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-5h-2Ar" customClass="DesignableImageView" customModule="KeyakiBlog" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ishimori" translatesAutoresizingMaskIntoConstraints="NO" id="U2l-5h-2Ar" customClass="DesignableImageView" customModule="KeyakiBlog" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="8" width="67" height="67"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -90,7 +90,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ishimori" width="131" height="160"/>
         <image name="Star" width="50" height="48"/>
+        <image name="ishimori" width="131" height="160"/>
     </resources>
 </document>

@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-743" y="-134"/>
         </scene>
-        <!--Follow-->
+        <!--Recommend-->
         <scene sceneID="QV9-ix-9KY">
             <objects>
-                <viewControllerPlaceholder storyboardName="Follow" id="fu8-hB-VUx" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Recommend" id="fu8-hB-VUx" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="08e-nC-wKz"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YE-Zn-Im5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,7 +73,7 @@
                 <navigationController title="欅ブログ" automaticallyAdjustsScrollViewInsets="NO" id="Q2J-VI-a9f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ブログ" id="lZE-Mm-ZZE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hIK-ae-fNk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIK-ae-fNk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

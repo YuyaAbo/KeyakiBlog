@@ -4,12 +4,12 @@ struct Member {
 
     var id: Int
     var image: UIImage
-    var isFollow: Bool
+    var isRecommended: Bool
     
-    init(_ id: Int, _ image: UIImage, _ isFollow: Bool = false) {
+    init(_ id: Int, _ image: UIImage, _ isRecommended: Bool = false) {
         self.id = id
         self.image = image
-        self.isFollow = isFollow
+        self.isRecommended = isRecommended
     }
 
 }

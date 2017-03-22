@@ -1,7 +1,7 @@
 import RxSwift
 
-class FollowSubject {
+class RecommendSubject {
     
-    static let followedIdsObject = Variable<[Int]>([])
+    static let recommendedIdsObject = Variable<[Int]>([])
 
 }

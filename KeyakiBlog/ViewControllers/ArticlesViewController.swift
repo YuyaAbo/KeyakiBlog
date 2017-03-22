@@ -78,9 +78,9 @@ class ArticlesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // ひとりでも推しメンがいた場合は
-        if FollowSubject.followedIdsObject.value.count >= 1 {
+        if RecommendSubject.recommendedIdsObject.value.count >= 1 {
             self.viewModel.refresh()
-            FollowSubject.followedIdsObject.value.forEach({ [weak self] (id) in
+            RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
                 print(id)
                 self?.viewModel.fetch(member: id)
             })
