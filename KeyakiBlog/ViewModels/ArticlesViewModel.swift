@@ -8,7 +8,9 @@ struct ArticlesViewModel {
     
     private var articlesObject = Variable<[Article]>([])
     private var pageObject = Variable<Int>(0)
+    private var memberPageObject = Variable<[Int: Int]>([:]) // メンバーごとのページ
     private let fetchStatusObject = Variable<FetchStatus>(.default)
+    private let fetchEachMemberStatusObject = Variable<[Int: FetchStatus]>([:])
 
     enum FetchStatus {
         case `default`
@@ -35,31 +37,49 @@ struct ArticlesViewModel {
             }, onError: { (error) in
                 self.fetchStatusObject.value = FetchStatus.default
                 // TODO: エラー文言表示する
-                print(error)
             }, onCompleted: {
                 self.fetchStatusObject.value = FetchStatus.default
                 // TODO: 読み込み完了文言を表示してもいいかも
-                print("Completed")
-            }) {
-                print("Disposed")
+            }) { ()
         }.disposed(by: disposeBag)
     }
     
     // 並列で実行してもいい？
+    // 同じメンバーの同じページの並列実行は許さないようにする
     func fetch(member id: Int) {
-        APIClient.fetchArticles(page: 0, memberId: id)
+        if fetchEachMemberStatusObject.value[id] == .fetching { return }
+        fetchEachMemberStatusObject.value[id] = .fetching
+
+        // メンバーごとにページングの管理したいから
+        var page = 0
+        if memberPageObject.value.contains(where: { return $0.key == id }) {
+            page = memberPageObject.value[id]!
+            page += 1
+        } else {
+            memberPageObject.value[id] = 0
+        }
+
+        APIClient.fetchArticles(page: page, memberId: id)
             .subscribe(onNext: { value in
                 let newArticles = self.generateArticles(html: value as! String)
                 self.articlesObject.value += newArticles
-                self.pageObject.value += 1
+                self.memberPageObject.value.updateValue(page, forKey: id)
             }, onError: { (error) in
                 // TODO: エラー文言表示する
-                print(error)
+                self.fetchEachMemberStatusObject.value[id] = .default
+                self.fetchStatusObject.value = .default
             }, onCompleted: {
                 // TODO: 読み込み完了文言を表示してもいいかも
-                print("Completed")
-            }) {
-                print("Disposed")
+                // 並列実行を許しているので重複する可能性がある。のでここで強引に重複を排除。
+                let orderedSet = NSOrderedSet(array: self.articlesObject.value)
+                self.articlesObject.value = orderedSet.array as! [Article]
+                // だいたいメンバーごとに配列に入ってるのでpublishedAt順にするため
+                self.articlesObject.value.sort(by: { (a, b) -> Bool in
+                    a.publishedAt >= b.publishedAt
+                })
+                self.fetchEachMemberStatusObject.value[id] = .default
+                self.fetchStatusObject.value = .default
+            }) { ()
             }.disposed(by: disposeBag)
     }
     
@@ -67,6 +87,7 @@ struct ArticlesViewModel {
         // fetch完了する前にVariableのvalueが空になるのでその時点でsubscribeされて
         // テーブルが空になるのでちょと微妙
         pageObject.value = 0
+        memberPageObject.value = [:]
         articlesObject.value = []
     }
     
