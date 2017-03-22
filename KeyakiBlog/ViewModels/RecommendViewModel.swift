@@ -3,10 +3,22 @@ import RxSwift
 
 struct RecommendViewModel {
     
+    private let disposeBag = DisposeBag()
     private var membersObject = Variable<[Member]>([])
     
     var members: Observable<[Member]> {
         return membersObject.asObservable()
+    }
+    var canRecommend: Observable<Bool> {
+        return membersObject.asObservable()
+            .map {
+                var recommendedNum = 0
+                $0.forEach{
+                    if $0.isRecommended { recommendedNum += 1 }
+                }
+                return recommendedNum < 10
+            }
+            .shareReplayLatestWhileConnected()
     }
     
     func fetch() {
@@ -25,12 +37,13 @@ struct RecommendViewModel {
     }
     
     func recommend(id: Int) {
+        print("推し")
         let isRecommended = membersObject.value[id].isRecommended
         UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = !isRecommended
-        if isRecommended {
-            RecommendSubject.recommendedIdsObject.value = RecommendSubject.recommendedIdsObject.value.filter { $0 != id }
-        } else {
+        if !isRecommended {
             RecommendSubject.recommendedIdsObject.value.append(id)
+        } else {
+            RecommendSubject.recommendedIdsObject.value = RecommendSubject.recommendedIdsObject.value.filter { $0 != id }
         }
         membersObject.value[id].isRecommended = !isRecommended
     }

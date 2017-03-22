@@ -9,6 +9,7 @@ class RecommendViewController: UIViewController {
 
     @IBOutlet weak var toMainButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
+    private var recommendable: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,24 @@ class RecommendViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        viewModel.canRecommend
+            .subscribe(onNext: { recommendable in
+                self.recommendable = recommendable
+            }, onError: { error in
+                ()
+            }, onCompleted: { 
+                ()
+            }) { 
+                ()
+            }
+            .disposed(by: disposeBag)
+        
         collectionView.rx
             .modelSelected(Member.self)
             .subscribe { [weak self] (value) in
+                if !(value.element?.isRecommended)! && !(self?.recommendable)! {
+                    return
+                }
                 self?.viewModel.recommend(id: (value.element?.id)!)
             }.disposed(by: disposeBag)
         
