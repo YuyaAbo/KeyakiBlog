@@ -70,9 +70,6 @@ struct ArticlesViewModel {
                 self.fetchStatusObject.value = .default
             }, onCompleted: {
                 // TODO: 読み込み完了文言を表示してもいいかも
-                // 並列実行を許しているので重複する可能性がある。のでここで強引に重複を排除。
-                let orderedSet = NSOrderedSet(array: self.articlesObject.value)
-                self.articlesObject.value = orderedSet.array as! [Article]
                 // だいたいメンバーごとに配列に入ってるのでpublishedAt順にするため
                 self.articlesObject.value.sort(by: { (a, b) -> Bool in
                     a.publishedAt >= b.publishedAt
