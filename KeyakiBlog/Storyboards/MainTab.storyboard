@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +51,7 @@
         <scene sceneID="bqN-uO-Rem">
             <objects>
                 <navigationController title="推しメン" automaticallyAdjustsScrollViewInsets="NO" id="HU1-1y-hz8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="推しメン" id="mjO-3Q-qTM"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="推しメン設定" image="recommend" id="mjO-3Q-qTM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKY-7p-92R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -71,7 +70,7 @@
         <scene sceneID="PoR-Ml-Q2B">
             <objects>
                 <navigationController title="欅ブログ" automaticallyAdjustsScrollViewInsets="NO" id="Q2J-VI-a9f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ブログ" id="lZE-Mm-ZZE"/>
+                    <tabBarItem key="tabBarItem" title="ブログ" image="blog" id="lZE-Mm-ZZE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIK-ae-fNk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -90,4 +89,8 @@
             <point key="canvasLocation" x="182" y="-555"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blog" width="30" height="30"/>
+        <image name="recommend" width="30" height="30"/>
+    </resources>
 </document>
