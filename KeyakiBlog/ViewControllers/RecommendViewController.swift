@@ -7,7 +7,7 @@ class RecommendViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var viewModel = RecommendViewModel()
 
-    @IBOutlet weak var toMainButton: UIBarButtonItem!
+    @IBOutlet weak var resetButton: DesignableButton!
     @IBOutlet weak var collectionView: UICollectionView!
     private var recommendable: Bool = true
     
@@ -22,6 +22,14 @@ class RecommendViewController: UIViewController {
                 cell.star?.isHidden = !element.isRecommended
             }
             .disposed(by: disposeBag)
+        
+        let reset = resetButton.rx.tap
+        reset.subscribe(onNext: { [weak self] (_) in
+            self?.viewModel.resetRecommended()
+            self?.collectionView.reloadData()
+        })
+        .disposed(by: disposeBag)
+        
 
         collectionView.rx
             .modelSelected(Member.self)

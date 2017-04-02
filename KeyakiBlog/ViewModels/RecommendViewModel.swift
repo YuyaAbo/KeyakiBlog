@@ -62,6 +62,18 @@ class RecommendViewModel {
             .disposed(by: disposeBag)
     }
     
+    func resetRecommended() {
+        RecommendSubject.recommendedIdsObject.value = []
+        UserDefaultsClient.instantinate().recommendedIds = []
+        var newMembers = [Member]()
+        membersObject.value.forEach {
+            var property = $0
+            property.isRecommended = false
+            newMembers.append(property)
+        }
+        membersObject.value = newMembers
+    }
+    
     private func recommend(member id: Int) {
         UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = true
         RecommendSubject.recommendedIdsObject.value.append(id)

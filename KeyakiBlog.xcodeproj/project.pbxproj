@@ -33,6 +33,7 @@
 		7BC63E5C1E740F81009E956D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC63E5A1E740F81009E956D /* LaunchScreen.storyboard */; };
 		7BC63E681E741400009E956D /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC63E671E741400009E956D /* ArticlesViewModel.swift */; };
 		7BCF53CB1E7E72B50056122B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF53CA1E7E72B50056122B /* APIClient.swift */; };
+		7BD753831E913A85001794A2 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD753821E913A85001794A2 /* DesignableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		7BC63E5D1E740F81009E956D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC63E671E741400009E956D /* ArticlesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
 		7BCF53CA1E7E72B50056122B /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		7BD753821E913A85001794A2 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		7BFDB3C81E800C70004FC4EF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		882A61FFEB1AF2A64CF4FDF3 /* Pods_KeyakiBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyakiBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 			children = (
 				7B1B9F6C1E745313003EF537 /* ArticleCell.swift */,
 				7B00208F1E7E2663007B3EFB /* DesignableImageView.swift */,
+				7BD753821E913A85001794A2 /* DesignableButton.swift */,
 				7B1B9F861E74A14B003EF537 /* MemberCell.swift */,
 				7B597FC71E7715880078AF25 /* MenuCell.swift */,
 			);
@@ -358,6 +361,7 @@
 				7B0020931E7E3366007B3EFB /* UserDefaultsClient.swift in Sources */,
 				7B1631871E7D9DFC002CFBD3 /* WebViewController.swift in Sources */,
 				7B1B9F761E748C99003EF537 /* Member.swift in Sources */,
+				7BD753831E913A85001794A2 /* DesignableButton.swift in Sources */,
 				7B287B341E8787DA007FE883 /* Observable+DoOnSubscribed.swift in Sources */,
 				7B1631891E7DA0ED002CFBD3 /* WebViewModel.swift in Sources */,
 			);
