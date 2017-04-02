@@ -8,6 +8,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // 初回起動時にLaunch情報をUserDefaultsにセット
+        if UserDefaultsClient.instantinate().firstLaunchedAt == nil {
+            UserDefaultsClient.instantinate().firstLaunchedAt = NSDate()
+        }
+        let launchedCount = UserDefaultsClient.instantinate().launchedCount ?? 0
+        UserDefaultsClient.instantinate().launchedCount = launchedCount + 1
+        UserDefaultsClient.instantinate().lastLaunchedAt = NSDate()
+
         return true
     }
 
@@ -32,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
