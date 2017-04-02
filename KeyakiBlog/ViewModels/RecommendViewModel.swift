@@ -40,17 +40,6 @@ class RecommendViewModel {
         membersObject.value = newMembers
     }
     
-//    func recommend(id: Int) {
-//        let isRecommended = membersObject.value[id].isRecommended
-//        UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = !isRecommended
-//        if !isRecommended {
-//            RecommendSubject.recommendedIdsObject.value.append(id)
-//        } else {
-//            RecommendSubject.recommendedIdsObject.value = RecommendSubject.recommendedIdsObject.value.filter { $0 != id }
-//        }
-//        membersObject.value[id].isRecommended = !isRecommended
-//    }
-    
     func updateRecommended(member id: Int) {
         let isRecommended = self.membersObject.value[id].isRecommended
 
@@ -76,12 +65,17 @@ class RecommendViewModel {
     private func recommend(member id: Int) {
         UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = true
         RecommendSubject.recommendedIdsObject.value.append(id)
+        var ids = UserDefaultsClient.instantinate().recommendedIds
+        ids.append(id)
+        UserDefaultsClient.instantinate().recommendedIds = ids
         self.membersObject.value[id].isRecommended = true
     }
 
     private func unrecommend(member id:Int) {
         UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = false
         RecommendSubject.recommendedIdsObject.value = RecommendSubject.recommendedIdsObject.value.filter { $0 != id }
+        let ids = UserDefaultsClient.instantinate().recommendedIds
+        UserDefaultsClient.instantinate().recommendedIds = ids.filter { $0 != id }
         self.membersObject.value[id].isRecommended = false
     }
     

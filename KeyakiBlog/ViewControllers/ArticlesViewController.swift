@@ -95,6 +95,7 @@ class ArticlesViewController: UIViewController {
             RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
                 self?.viewModel.fetch(member: id)
             })
+            self.table.reloadData()
         } else {
             self.viewModel.fetch()
         }

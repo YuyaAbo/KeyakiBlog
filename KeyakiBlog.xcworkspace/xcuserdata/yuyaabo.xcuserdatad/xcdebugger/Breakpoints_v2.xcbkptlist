@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KeyakiBlog/ViewControllers/RecommendViewController.swift"
-            timestampString = "512246271.040766"
+            timestampString = "512831814.797157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KeyakiBlog/ViewModels/RecommendViewModel.swift"
-            timestampString = "512418448.847157"
+            timestampString = "512831814.797157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "updateRecommended(member:)"
             landmarkType = "7">
          </BreakpointContent>

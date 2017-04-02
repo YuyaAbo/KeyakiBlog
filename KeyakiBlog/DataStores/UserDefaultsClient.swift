@@ -7,6 +7,7 @@ class UserDefaultsClient {
         case lastLaunchedAt = "lastLaunchedAt"
         case launchedCount = "launchedCount"
         case recommend = "isRecommended"
+        case recommendedIds = "recommendedIds"
     }
     
     private var memberID: Int = 0
@@ -61,6 +62,19 @@ class UserDefaultsClient {
         }
         get {
             return defaults.integer(forKey: Key.launchedCount.rawValue)
+        }
+    }
+    
+    var recommendedIds: [Int] {
+        set {
+            defaults.set(newValue, forKey: Key.recommendedIds.rawValue)
+            defaults.synchronize()
+        }
+        get {
+            guard let rawValue = defaults.array(forKey: Key.recommendedIds.rawValue) as? [Int] else {
+                return []
+            }
+            return rawValue
         }
     }
     
