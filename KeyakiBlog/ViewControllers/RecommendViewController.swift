@@ -5,7 +5,7 @@ import RxSwift
 class RecommendViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    private let viewModel = RecommendViewModel()
+    private var viewModel = RecommendViewModel()
 
     @IBOutlet weak var toMainButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,6 +16,14 @@ class RecommendViewController: UIViewController {
         
         title = "推しメン"
         
+//        let memberTapped = collectionView.rx
+//            .modelSelected(Member.self)
+//            .flatMap({ (member) -> Observable<(RecommendAction, Int)> in
+//                let action = member.isRecommended ? RecommendAction.unrecommend : RecommendAction.recommend
+//                return Observable.just((action, member.id))
+//            })
+//            .shareReplayLatestWhileConnected()
+        
         viewModel.members
             .bindTo(collectionView.rx.items(cellIdentifier: "MemberCell", cellType: MemberCell.self)) { row, element, cell in
                 cell.imageView?.image = element.image
@@ -23,26 +31,39 @@ class RecommendViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.canRecommend
-            .subscribe(onNext: { recommendable in
-                self.recommendable = recommendable
-            }, onError: { error in
-                ()
-            }, onCompleted: { 
-                ()
-            }) { 
-                ()
-            }
-            .disposed(by: disposeBag)
-        
+//        viewModel.canRecommend
+//            .subscribe(onNext: { recommendable in
+//                self.recommendable = recommendable
+//            }, onError: { error in
+//                ()
+//            })
+//            .disposed(by: disposeBag)
+
+        // メンバーを推しメンにできるか
+//        Observable.combineLatest(memberTapped, viewModel.recommendedCount.distinctUntilChanged()) { (recommendEvent, recommendedCount) -> Observable<Any> in
+//                switch recommendEvent.0 {
+//                case .recommend:
+//                    if recommendedCount < 10 {
+//                        return Observable.just(recommendEvent.1)
+//                    }
+//                    return Observable.empty()
+//                case .unrecommend:
+//                    return Observable.just(recommendEvent.1)
+//                }
+//            }
+//            .debug()
+//            .flatMap({ (memberId) -> Observable<Void> in
+//                return self.viewModel.recommend(id: memberId)
+//            })
+//            .disposed(by: disposeBag)
+//        
         collectionView.rx
             .modelSelected(Member.self)
-            .subscribe { [weak self] (value) in
-                if !(value.element?.isRecommended)! && !(self?.recommendable)! {
-                    return
-                }
-                self?.viewModel.recommend(id: (value.element?.id)!)
-            }.disposed(by: disposeBag)
+            .subscribe(onNext: { (member) in
+                self.viewModel.updateRecommended(member: member.id)
+            })
+            .disposed(by: disposeBag)
+        
         
         viewModel.fetch()
     }

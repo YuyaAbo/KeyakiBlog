@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (4.4.0)
   - Kanna (2.1.1)
-  - RxCocoa (3.2.0):
-    - RxSwift (~> 3.1)
-  - RxSwift (3.2.0)
+  - RxCocoa (3.3.1):
+    - RxSwift (~> 3.3)
+  - RxSwift (3.3.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -18,8 +18,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 6709ebfb4301c30986d6a4c61832915b7a249418
   Kanna: db17eae870ba4f8702e894c88dcf55f01986b674
-  RxCocoa: 8b71807794820cdd56af916ccf10519e430ce99a
-  RxSwift: 8a037c17b4f67131161f5d021d01e8d24f51920a
+  RxCocoa: 7507ae9e1887e21803bc8dfc813c718db9b776b6
+  RxSwift: 6b8d633992cd6cdf92473af2153e29da75e1e5bf
   SDWebImage: 7581bb998a64e64439a23333b27b9849945d6e73
 
 PODFILE CHECKSUM: 39fce993d51a50c58f5173d127044b422db3fb48
