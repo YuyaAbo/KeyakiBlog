@@ -38,15 +38,10 @@ class ArticlesViewController: UIViewController {
         
         refreshControl.rx.controlEvent(UIControlEvents.valueChanged)
             .subscribe { [weak self] value in
-                if (self?.existRecommendedMember())! {
-                    self?.viewModel.refresh()
-                    RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
-                        self?.viewModel.fetch(member: id)
-                    })
-                } else {
-                    self?.viewModel.refresh()
-                    self?.viewModel.fetch()
-                }
+                self?.viewModel.refresh()
+                RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
+                    self?.viewModel.fetch(member: id)
+                })
                 self?.table.reloadData()
             }
             .disposed(by: disposeBag)
@@ -80,44 +75,25 @@ class ArticlesViewController: UIViewController {
             .subscribe { [weak self] value in
                 if (self?.table.contentOffset.y)! >= ((self?.table.contentSize.height)! - (self?.table.bounds.size.height)!),
                     (self?.table.isDragging)! {
-                    if (self?.existRecommendedMember())! {
-                        RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
-                            self?.viewModel.fetch(member: id)
-                        })
-                    } else {
-                        self?.viewModel.fetch()
-                    }
+                    RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
+                        self?.viewModel.fetch(member: id)
+                    })
                 }
             }
             .disposed(by: disposeBag)
         
-        if existRecommendedMember() {
-            RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
-                self?.viewModel.fetch(member: id)
-            })
-            self.table.reloadData()
-        } else {
-            self.viewModel.fetch()
-        }
+        RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
+            self?.viewModel.fetch(member: id)
+        })
+        self.table.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // 全員推しメンにしてる場合はfetch()を呼んだ方がパフォーマンスがいいのでこうしてる
-        if existRecommendedMember() {
-            self.viewModel.refresh()
-            RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
-                self?.viewModel.fetch(member: id)
-            })
-            self.table.reloadData()
-        } else {
-            self.viewModel.refresh()
-            self.viewModel.fetch()
-        }
-    }
-    
-    private func existRecommendedMember() -> Bool {
-        return RecommendSubject.recommendedIdsObject.value.count >= 1 &&
-            RecommendSubject.recommendedIdsObject.value.count != 20
+        self.viewModel.refresh()
+        RecommendSubject.recommendedIdsObject.value.forEach({ [weak self] (id) in
+            self?.viewModel.fetch(member: id)
+        })
+        self.table.reloadData()
     }
 
 }

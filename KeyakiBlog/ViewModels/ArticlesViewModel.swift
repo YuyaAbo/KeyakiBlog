@@ -7,7 +7,6 @@ struct ArticlesViewModel {
     private let disposeBag = DisposeBag()
     
     private var articlesObject = Variable<[Article]>([])
-    private var pageObject = Variable<Int>(0)
     private var memberPageObject = Variable<[Int: Int]>([:]) // メンバーごとのページ
     private let fetchStatusObject = Variable<FetchStatus>(.default)
     private let fetchEachMemberStatusObject = Variable<[Int: FetchStatus]>([:])
@@ -24,25 +23,6 @@ struct ArticlesViewModel {
         return fetchStatusObject.asObservable()
     }
     
-    func fetch() {
-        if fetchStatusObject.value == .fetching { return }
-        
-        APIClient.fetchArticles(page: pageObject.value)
-            .do(onSubscribed: {
-                self.fetchStatusObject.value = .fetching
-            }, onDisposed: {
-                self.fetchStatusObject.value = .default
-            })
-            .subscribe(onNext: { value in
-                let newArticles = self.generateArticles(html: value as! String)
-                self.articlesObject.value += newArticles
-                self.pageObject.value += 1
-            }, onError: { (error) in
-                // TODO: エラー文言表示する
-            })
-            .disposed(by: disposeBag)
-    }
-    
     // 同じメンバーの同じページの並列実行は許さないようにする
     func fetch(member id: Int) {
         if fetchEachMemberStatusObject.value[id] == .fetching { return }
@@ -53,7 +33,6 @@ struct ArticlesViewModel {
             .subscribe(onNext: { nextPage in
                 if nextPage == 0 { self.memberPageObject.value[id] = 0 }
                 page = nextPage
-            }, onError: { (error) in
             })
             .disposed(by: disposeBag)
 
@@ -69,7 +48,6 @@ struct ArticlesViewModel {
                 let newArticles = self.generateArticles(html: value as! String)
                 self.articlesObject.value += newArticles
                 self.memberPageObject.value.updateValue(page, forKey: id)
-            }, onError: { (error) in
             }, onCompleted: {
                 // だいたいメンバーごとに配列に入ってるのでpublishedAt順にするため
                 self.articlesObject.value.sort(by: { (a, b) -> Bool in
@@ -81,8 +59,7 @@ struct ArticlesViewModel {
     
     func refresh() {
         // fetch完了する前にVariableのvalueが空になるのでその時点でsubscribeされて
-        // テーブルが空になるのでちょと微妙
-        pageObject.value = 0
+        // テーブルが空になるのでちょと微妙か？
         memberPageObject.value = [:]
         articlesObject.value = []
     }
