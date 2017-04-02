@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-U2-kYk">
-                                <rect key="frame" x="16" y="56" width="343" height="611"/>
+                                <rect key="frame" x="16" y="92" width="343" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VyS-WY-br9">
                                     <size key="itemSize" width="75" height="75"/>
@@ -101,19 +101,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ブログを見たいメンバーを選んでください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-LH-0zC">
+                                <rect key="frame" x="16" y="56" width="343" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="OlZ-g6-eHR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gGb-LH-0zC" firstAttribute="trailing" secondItem="mjD-8e-jhf" secondAttribute="trailing" id="0dL-Jf-X63"/>
                             <constraint firstItem="Scw-U2-kYk" firstAttribute="trailing" secondItem="yAZ-UO-neP" secondAttribute="trailingMargin" id="2hs-qc-rCy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Uk-cF-8AF" secondAttribute="trailing" constant="50" id="A1F-BQ-gE3"/>
                             <constraint firstItem="mjD-8e-jhf" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="19" id="AXM-gK-hKd"/>
                             <constraint firstItem="4Uk-cF-8AF" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="20" id="AyL-o3-2g9"/>
+                            <constraint firstItem="gGb-LH-0zC" firstAttribute="top" secondItem="4Uk-cF-8AF" secondAttribute="bottom" constant="8" symbolic="YES" id="Heb-YZ-uW1"/>
                             <constraint firstItem="Scw-U2-kYk" firstAttribute="leading" secondItem="yAZ-UO-neP" secondAttribute="leadingMargin" id="Ie5-Aa-z4o"/>
-                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="56" id="NK4-Pw-Hkm"/>
-                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="4Uk-cF-8AF" secondAttribute="bottom" constant="8" id="d90-1d-EmV"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mCz-8J-luV" secondAttribute="bottom" constant="92" id="NK4-Pw-Hkm"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="4Uk-cF-8AF" secondAttribute="bottom" constant="44" id="d90-1d-EmV"/>
                             <constraint firstItem="4Uk-cF-8AF" firstAttribute="leading" secondItem="yAZ-UO-neP" secondAttribute="leadingMargin" id="eui-6w-Zuj"/>
+                            <constraint firstItem="gGb-LH-0zC" firstAttribute="leading" secondItem="4Uk-cF-8AF" secondAttribute="leading" id="msC-KP-cBx"/>
                             <constraint firstItem="MpK-aQ-3hP" firstAttribute="top" secondItem="Scw-U2-kYk" secondAttribute="bottom" id="pw5-tm-JOn"/>
-                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mjD-8e-jhf" secondAttribute="bottom" constant="7" id="uSZ-70-OqV"/>
+                            <constraint firstItem="Scw-U2-kYk" firstAttribute="top" secondItem="mjD-8e-jhf" secondAttribute="bottom" constant="43" id="uSZ-70-OqV"/>
                             <constraint firstItem="mjD-8e-jhf" firstAttribute="trailing" secondItem="yAZ-UO-neP" secondAttribute="trailingMargin" id="xFV-rD-XM6"/>
                         </constraints>
                     </view>

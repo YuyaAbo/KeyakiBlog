@@ -6,7 +6,6 @@ class UserDefaultsClient {
         case firstLaunchedAt = "firstLaunchedAt"
         case lastLaunchedAt = "lastLaunchedAt"
         case launchedCount = "launchedCount"
-        case recommend = "isRecommended"
         case recommendedIds = "recommendedIds"
     }
     
@@ -72,19 +71,9 @@ class UserDefaultsClient {
         }
         get {
             guard let rawValue = defaults.array(forKey: Key.recommendedIds.rawValue) as? [Int] else {
-                return []
+                return [MemberList.ishimori.rawValue]
             }
             return rawValue
-        }
-    }
-    
-    var memberIsRecommended: Bool {
-        set {
-            defaults.set(newValue, forKey: "\(memberID)" + Key.recommend.rawValue)
-            defaults.synchronize()
-        }
-        get {
-            return defaults.bool(forKey: "\(memberID)" + Key.recommend.rawValue)
         }
     }
 

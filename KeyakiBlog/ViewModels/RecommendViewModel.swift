@@ -29,12 +29,14 @@ class RecommendViewModel {
     func fetch() {
         var newMembers = [Member]()
         
+        let recommendedIds = RecommendSubject.recommendedIdsObject.value
         for member in MemberList.enumerate {
-            let isRecommended: Bool = UserDefaultsClient.instantinate(memberID: member.rawValue).memberIsRecommended
-            if isRecommended {
+            if recommendedIds.contains(member.rawValue) {
                 RecommendSubject.recommendedIdsObject.value.append(member.rawValue)
+                newMembers.append(Member(member.rawValue, member.image, true))
+            } else {
+                newMembers.append(Member(member.rawValue, member.image, false))
             }
-            newMembers.append(Member(member.rawValue, member.image, isRecommended))
         }
         
         membersObject.value = newMembers
@@ -63,19 +65,12 @@ class RecommendViewModel {
     }
     
     func resetRecommended() {
-        RecommendSubject.recommendedIdsObject.value = []
-        UserDefaultsClient.instantinate().recommendedIds = []
-        var newMembers = [Member]()
-        membersObject.value.forEach {
-            var property = $0
-            property.isRecommended = false
-            newMembers.append(property)
-        }
-        membersObject.value = newMembers
+        RecommendSubject.recommendedIdsObject.value = [MemberList.ishimori.rawValue]
+        UserDefaultsClient.instantinate().recommendedIds = [MemberList.ishimori.rawValue]
+        fetch()
     }
     
     private func recommend(member id: Int) {
-        UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = true
         RecommendSubject.recommendedIdsObject.value.append(id)
         var ids = UserDefaultsClient.instantinate().recommendedIds
         ids.append(id)
@@ -84,7 +79,6 @@ class RecommendViewModel {
     }
 
     private func unrecommend(member id:Int) {
-        UserDefaultsClient.instantinate(memberID: id).memberIsRecommended = false
         RecommendSubject.recommendedIdsObject.value = RecommendSubject.recommendedIdsObject.value.filter { $0 != id }
         let ids = UserDefaultsClient.instantinate().recommendedIds
         UserDefaultsClient.instantinate().recommendedIds = ids.filter { $0 != id }

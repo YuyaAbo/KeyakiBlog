@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedCount = UserDefaultsClient.instantinate().launchedCount ?? 0
         UserDefaultsClient.instantinate().launchedCount = launchedCount + 1
         UserDefaultsClient.instantinate().lastLaunchedAt = NSDate()
+        
+        let ids = UserDefaultsClient.instantinate().recommendedIds
+        RecommendSubject.recommendedIdsObject.value = ids
 
         return true
     }
