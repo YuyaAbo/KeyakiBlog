@@ -70,10 +70,30 @@ struct ArticlesViewModel {
         var newArticles = [Article]()
         
         doc?.css("article").forEach( { (element) in
-            let title: String = (element.css("div.box-ttl").first?.css("a").first?.innerHTML!)!
-            let url: String = (element.css("div.box-ttl").first?.css("a[href]").first?["href"])!
-            let author: String = (element.css("p.name").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
-            let publishedAt: String = (element.css("div.box-bottom").first?.css("li").first?.innerHTML!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!
+            var title: String = "タイトル"
+            var url: String = ""
+            if let titleDiv: XMLElement = element.css("div.box-ttl").first {
+                if let titleA = titleDiv.css("a").first?.innerHTML {
+                    title = titleA
+                }
+                if let href = titleDiv.css("a[href]").first?["href"] {
+                    url = href
+                }
+            }
+            var author: String = ""
+            if let nameP = element.css("p.name").first {
+                if let name = nameP.innerHTML {
+                    author = name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                }
+            }
+            var publishedAt: String = ""
+            if let bottomDiv = element.css("div.box-bottom").first {
+                if let li = bottomDiv.css("li").first {
+                    if let str = li.innerHTML {
+                        publishedAt = str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    }
+                }
+            }
             
             // SDWebImageのsb_setImageを使いたいのでUIImageではなくUIImageViewを使ってるけどちょと微妙
             let imageView = UIImageView()
